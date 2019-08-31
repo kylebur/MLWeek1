@@ -42,9 +42,12 @@ async function app() {
       const result = await classifier.predictClass(activation);
 
       const classes = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock', 'Dog', 'Bomb', 'Bronto', 'Spider'];
+      const winners = ['Paper', 'Scissors', 'Dog', 'Rock', 'Paper', 'Spock', 'scissors', 'Spider', 'Rock'];
       document.getElementById('console').innerText = `
-        prediction: ${classes[result.classIndex]}\n
-        probability: ${result.confidences[result.classIndex]}
+	Here is what I would have chosen if I had hands: ${winners[result.classIndex]}\n 
+        I think your move was: ${classes[result.classIndex]}\n
+        with the probability: ${result.confidences[result.classIndex]}
+	Result:  I win.  Sorry.
       `;
     }
 
